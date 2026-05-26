@@ -5,9 +5,12 @@ import PageHero from '../components/layout/PageHero.jsx';
 import Section from '../components/layout/Section.jsx';
 import Button from '../components/ui/Button.jsx';
 import Card from '../components/ui/Card.jsx';
+import StoriesFeature from '../components/features/StoriesFeature.jsx';
 import ClockTowerFeature from '../components/features/ClockTowerFeature.jsx';
 import Timeline from '../components/features/Timeline.jsx';
 import HeritageBadgePanel from '../components/features/HeritageBadgePanel.jsx';
+import HeritageFeature from '../components/features/HeritageFeature.jsx';
+import VisitFeature from '../components/features/VisitFeature.jsx';
 
 import { timeline } from '../data/timeline.js';
 
@@ -113,81 +116,7 @@ export default function HomePage() {
         {/* ════════════════════════════════════════════ */}
         {/* 3. ONE BUILDING. MANY STORIES.              */}
         {/* ════════════════════════════════════════════ */}
-        <Section
-          id="stories"
-          variant="cream"
-          eyebrow="Explore"
-          title="One Building. Many Stories."
-          subtitle="Vancouver Block is a place where architecture, enterprise, heritage, and daily city life converge. Each perspective reveals something new."
-        >
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <Card
-              title="The Architect's Story"
-              eyebrow="Architecture"
-              icon="Ruler"
-              href="/architecture"
-              variant="heritage"
-            >
-              Parr & Fee designed a building that married Edwardian ornament with modern steel-frame
-              engineering. The details of their work can still be read on every floor.
-            </Card>
-
-            <Card
-              title="The Entrepreneur's Story"
-              eyebrow="Enterprise"
-              icon="TrendingUp"
-              href="/entrepreneurial-vancouver"
-              variant="heritage"
-            >
-              Dominic Burns wagered on Vancouver's future -- and built a landmark to prove it.
-              His story connects meatpacking, railways, and the ambitions of a booming port city.
-            </Card>
-
-            <Card
-              title="The Street's Story"
-              eyebrow="History"
-              icon="MapPin"
-              href="/history"
-              variant="heritage"
-            >
-              Granville Street transformed from a rough frontier road to one of Canada's most
-              prominent commercial corridors. Vancouver Block witnessed every chapter.
-            </Card>
-
-            <Card
-              title="The Clock's Story"
-              eyebrow="Clock Tower"
-              icon="Clock"
-              href="/architecture"
-              variant="heritage"
-            >
-              Four illuminated faces mark the hours above Granville Street. The clock tower
-              is both a mechanical marvel and an enduring piece of the city's public landscape.
-            </Card>
-
-            <Card
-              title="The Heritage Story"
-              eyebrow="Conservation"
-              icon="Shield"
-              href="/heritage-status"
-              variant="heritage"
-            >
-              Class A heritage designation and Canadian Register listing ensure that
-              this building remains protected for future generations. What does that mean in practice?
-            </Card>
-
-            <Card
-              title="The Visitor's Story"
-              eyebrow="Experience"
-              icon="Compass"
-              href="/tours"
-              variant="heritage"
-            >
-              Whether you pass by daily or have never looked up, there is always something new
-              to notice about Vancouver Block. Walking tours begin at the sidewalk.
-            </Card>
-          </div>
-        </Section>
+        <StoriesFeature />
 
         {/* ════════════════════════════════════════════ */}
         {/* 4. CLOCK TOWER FEATURE                       */}
@@ -202,23 +131,9 @@ export default function HomePage() {
         </Section>
 
         {/* ════════════════════════════════════════════ */}
-        {/* 6. HERITAGE STATUS PANEL                     */}
+        {/* 6. HERITAGE STATUS                             */}
         {/* ════════════════════════════════════════════ */}
-        <Section
-          id="heritage-overview"
-          variant="archive"
-          eyebrow="Heritage Status"
-          title="Protected Heritage"
-          subtitle="Vancouver Block is recognized at both the municipal and national level as a place of lasting historical and architectural significance."
-        >
-          <HeritageBadgePanel compact={true} />
-
-          <div className="mt-10 text-center">
-            <Button href="/heritage-status" variant="secondary" size="md">
-              Learn About Heritage Status
-            </Button>
-          </div>
-        </Section>
+        <HeritageFeature />
 
         {/* ════════════════════════════════════════════ */}
         {/* 7. ENTREPRENEURIAL PREVIEW                   */}
@@ -358,52 +273,7 @@ export default function HomePage() {
         {/* ════════════════════════════════════════════ */}
         {/* 9. VISIT CTA                                 */}
         {/* ════════════════════════════════════════════ */}
-        <Section
-          id="visit"
-          variant="dark"
-          eyebrow="Visit"
-          title="See Vancouver Block"
-          subtitle="The best way to experience a heritage building is to stand in front of it."
-        >
-          <div className="grid gap-8 md:grid-cols-2 items-start">
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-display text-xl font-semibold text-heritage-marble mb-2">Address</h3>
-                <p className="text-heritage-marble/70 text-lg">
-                  736 Granville Street<br />
-                  Vancouver, BC V6Z 1A1
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-display text-xl font-semibold text-heritage-marble mb-2">Lobby Access</h3>
-                <p className="text-heritage-marble/70">
-                  The public lobby may be accessible during regular building hours on weekdays.
-                  Office floors and the clock tower are not generally open to the public.
-                  Special tours and heritage events are organized periodically.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-display text-xl font-semibold text-heritage-marble mb-2">Getting There</h3>
-                <p className="text-heritage-marble/70">
-                  Located at the intersection of Granville and West Georgia Streets, steps from
-                  the Granville SkyTrain Station and multiple bus routes. The building is in the
-                  heart of Vancouver's downtown commercial district.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-start gap-4 md:items-end md:justify-center md:h-full">
-              <Button href="/tours" variant="primary" size="lg">
-                Plan a Visit
-              </Button>
-              <Button href="/contact" variant="ghost" size="md">
-                Get in Touch
-              </Button>
-            </div>
-          </div>
-        </Section>
+        <VisitFeature />
 
       </main>
 
