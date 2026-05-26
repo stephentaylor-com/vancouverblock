@@ -1,0 +1,200 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+
+  --color-heritage-cream: #E8DDC8;
+  --color-heritage-terracotta: #D8C3A5;
+  --color-heritage-marble: #F6F1E8;
+  --color-heritage-charcoal: #171717;
+  --color-heritage-bronze: #8A6A3F;
+  --color-heritage-blue: #102033;
+  --color-heritage-neon-red: #D7222A;
+  --color-heritage-neon-blue: #2E7DD7;
+  --color-heritage-archive: #F2E7D2;
+  --color-heritage-clock-glass: #DDE8EA;
+  --color-heritage-bronze-light: #B8956A;
+  --color-heritage-cream-dark: #D4C9B4;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-heritage-charcoal);
+  background-color: var(--color-heritage-marble);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display font for headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-heritage-charcoal);
+  color: var(--color-heritage-marble);
+  font-size: 0.875rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus rings */
+:focus-visible {
+  outline: 2px solid var(--color-heritage-bronze);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-heritage-bronze);
+  color: var(--color-heritage-marble);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Decorative rule */
+.heritage-rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-heritage-bronze), transparent);
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-heritage-bronze);
+}
+
+/* Architectural grid background */
+.arch-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(138, 106, 63, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 106, 63, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Clock face glow effect */
+.clock-glow {
+  box-shadow: 0 0 60px rgba(215, 34, 42, 0.08), 0 0 120px rgba(46, 125, 215, 0.05);
+}
+
+/* Smooth image placeholder */
+.img-placeholder {
+  background: linear-gradient(135deg, var(--color-heritage-cream) 0%, var(--color-heritage-terracotta) 100%);
+}
+
+/* Hero entrance animation — CSS only, no JS dependency */
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-in {
+  animation: hero-fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Section scroll-reveal — CSS only */
+@keyframes section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-reveal {
+  animation: section-reveal 0.5s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+/* Heritage map — sepia tint over Stamen Toner Lite tiles */
+.heritage-map {
+  filter: sepia(0.35) saturate(0.85) brightness(1.02) contrast(1.05);
+}
+
+.heritage-map .leaflet-control-attribution {
+  font-size: 10px;
+  background: rgba(246, 241, 232, 0.85);
+  color: rgba(23, 23, 23, 0.5);
+}
+
+.heritage-map .leaflet-control-attribution a {
+  color: var(--color-heritage-bronze);
+}
+
+.heritage-map .leaflet-control-zoom a {
+  background: var(--color-heritage-marble);
+  color: var(--color-heritage-charcoal);
+  border-color: var(--color-heritage-cream-dark);
+}
+
+.heritage-map .leaflet-control-zoom a:hover {
+  background: var(--color-heritage-cream);
+}
+
+.heritage-map .leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.heritage-map .leaflet-popup-tip {
+  box-shadow: none;
+}
+
+/* Remove default Leaflet marker div styling */
+.heritage-map-marker {
+  background: none !important;
+  border: none !important;
+}
